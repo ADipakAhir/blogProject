@@ -1,0 +1,89 @@
+<%- include('header') %>
+<div class="page-wrapper">
+    <div class="page-breadcrumb">
+      <div class="row">
+        <div class="col-12 d-flex no-block align-items-center">
+          <h4 class="page-title">Tables</h4>
+          <div class="ms-auto text-end">
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">
+                  Library
+                </li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+    <div class="container-fluid">
+      <!-- ============================================================== -->
+      <!-- Start Page Content -->
+      <!-- ============================================================== -->
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title mb-0">Static Table</h5>
+            </div>
+            <table class="table">
+              <thead>
+                <td><img src="<%= locals.adminData.admin_image %>" height="70" width="70" style="border-radius: 50%;"/></td>
+
+                <tr>
+                  <th scope="col">Name</th>
+                  <td><%= locals.adminData.name %></td>
+                </tr>
+
+                <tr>
+                  <th scope="col">Email</th>
+                  <td><%= locals.adminData.email %></td>
+                </tr>
+
+                <tr>
+                  <th scope="col">Phone</th>
+                  <td><%= locals.adminData.phone %></td>
+                </tr>
+
+                <tr>
+                  <th scope="col">Gender</th>
+                  <td><%= locals.adminData.gender %></td>
+                </tr>
+
+                <tr>
+                  <th scope="col">hobby</th>
+                  <td><%= locals.adminData.hobby %></td>
+                </tr>
+
+                <tr>
+                  <th scope="col">City</th>
+                  <td><%= locals.adminData.city %></td>
+                </tr>
+
+                <tr>
+                  <th scope="col">Message</th>
+                  <td><%= locals.adminData.message %></td>
+                </tr>
+
+      
+              </thead>
+            </table>
+                <div class="card-body">
+                  <a class="btn btn-primary" href="/admin/UpdateAdminRecord/<%= locals.adminData.id %>">
+                    Submit
+                  </a>
+                </div>
+         
+        </div>
+      </div>
+     
+    </div>
+   
+    <%- include('footer') %>

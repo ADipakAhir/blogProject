@@ -1,0 +1,138 @@
+<%-include("header")%>
+      <!-- ============================================================== -->
+      <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+      <!-- ============================================================== -->
+      <!-- ============================================================== -->
+      <!-- Page wrapper  -->
+      <!-- ============================================================== -->
+      <div class="page-wrapper">
+        <!-- ============================================================== -->
+        <!-- Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <div class="page-breadcrumb">
+          <div class="row">
+            <div class="col-12 d-flex no-block align-items-center">
+              <h4 class="page-title">Form Basic</h4>
+              <div class="ms-auto text-end">
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">
+                      Library
+                    </li>
+                  </ol>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Container fluid  -->
+        <!-- ============================================================== -->
+        <div class="container-fluid">
+          <!-- ============================================================== -->
+          <!-- Start Page Content -->
+          <!-- ============================================================== -->
+          <div class="row">
+            <div class="col-md-6">
+              <div class="card">
+                <form class="form-horizontal" method="post" action="/admin/subcategory/insertSubData" enctype="multipart/form-data">
+                  <div class="card-body">
+                    <h4 class="card-title">SubCategory Info</h4>
+
+                    <div class="form-group row">
+                        <label
+                          for="fname"
+                          class="col-sm-3 text-end control-label col-form-label"
+                          >Select Category</label
+                        >
+                        <div class="col-md-9">
+                            <select
+                            name="categoryId"
+                            class="select2 form-select shadow-none"
+                            style="width: 100%; height: 36px"
+                            >
+                            <option>Select</option>
+                                <% for(var cd of catData){ %>
+                                <option value="<%= cd.id %>"><%= cd.category %></option>
+                                <% } %>
+                            
+                            </select>
+                        </div>
+                      </div>
+
+
+                    <div class="form-group row">
+                      <label
+                        for="fname"
+                        class="col-sm-3 text-end control-label col-form-label"
+                        >Enter Title</label
+                      >
+                      <div class="col-sm-9">
+                        <input
+                          type="text"
+                          name="title"
+                          class="form-control"
+                          id="fname"
+                          placeholder="Enter Title Here"
+                        />
+                      </div>
+                    </div>
+                    
+                 
+                    <div class="form-group row">
+                      <label
+                        for="cono1"
+                        class="col-sm-3 text-end control-label col-form-label"
+                        >Content</label
+                      >
+                      <div class="col-sm-9">
+                        <textarea class="form-control" name="content"></textarea>
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label
+                          for="cono1"
+                          class="col-sm-3 text-end control-label col-form-label"
+                          >Upload Slider Image</label
+                        >
+                        <div class="col-md-9">
+                            <div class="custom-file">
+                              <input
+                                type="file"
+                                name="subcat_image"
+                                class="custom-file-input"
+                                id="validatedCustomFile"
+                                required
+                              />
+                              <label
+                                class="custom-file-label"
+                                for="validatedCustomFile"
+                                >Choose file...</label
+                              >
+                              <div class="invalid-feedback">
+                                Example invalid custom file feedback
+                              </div>
+                            </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="border-top">
+                    <div class="card-body">
+                      <button type="submit" class="btn btn-primary">
+                        Submit
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+      
+        <!-- footer -->
+        
+        <%-include("footer")%>

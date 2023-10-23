@@ -1,0 +1,80 @@
+  <%- include('header') %>
+    <div class="page-wrapper">
+        <div class="page-breadcrumb">
+          <div class="row">
+            <div class="col-12 d-flex no-block align-items-center">
+              <h4 class="page-title">Tables</h4>
+              <div class="ms-auto text-end">
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">
+                      Library
+                    </li>
+                  </ol>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Container fluid  -->
+        <!-- ============================================================== -->
+        <div class="container-fluid">
+          <!-- ============================================================== -->
+          <!-- Start Page Content -->
+          <!-- ============================================================== -->
+          <div class="row">
+            <div class="col-12">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title mb-0">Static Table</h5>
+             
+                    <% if(flash.success && flash.success.length > 0){ %>
+                      <div class="alert alert-success" id="alertSuccess">
+                          <%= flash.success %>
+                      </div>
+                   <% } %>
+                </div>
+                </div>
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Name</th>
+                      <th scope="col">Email</th>
+                      <th scope="col">Phone</th>
+                      <th scope="col">Image</th>
+                      <th scope="col">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% var i=1; for(var ad of adminData){ %>
+                    <tr>
+                      <th scope="row"><%= i %></th>
+                      <td><%= ad.name %></td>
+                      <td><%= ad.email %></td>
+                      <td><%= ad.phone %></td>
+                      <td><img src="<%= ad.admin_image %>" height="70" /></td>
+                      <td><a href="/admin/deleteAdminRecord/<%= ad.id %>"><i class="me-2 mdi mdi-delete" style="color:gray; font-size: 25px;"></i></a> 
+                            ||
+                          <a href="/admin/UpdateAdminRecord/<%= ad.id %>"><i style="color:gray; font-size: 25px;" class="me-2 mdi mdi-tooltip-edit"></i></a></td>
+                    </tr>
+                    <% ++i } %>
+                  </tbody>
+                </table>
+              </div>
+             
+            </div>
+          </div>
+         
+        </div>
+       
+        <%- include('footer') %>
+
+         <script>
+             $('#alertSuccess').fadeOut(5000);
+         </script>
