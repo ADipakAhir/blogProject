@@ -6,7 +6,38 @@ const app = express();
 
 const path = require("path")
 
-const db = require("./config/mongoose");
+const mongoose = require('mongoose');
+
+const connectDB = async ()=>{
+    try{
+        var con = await mongoose.connect("mongodb+srv://hensibhimani5:Hensi123@cluster0.gqlfvrw.mongodb.net/Bloging", {
+            useNewUrlParser: true,
+            useUnifiedTopology: true
+        })
+        if(con){
+            console.log("Db is connected");
+        }
+    }
+    catch(err){
+        console.log("Db is not connected");
+    }
+}
+
+
+connectDB();
+
+// mongoose.connect("mongodb+srv://hensibhimani5:Hensi123@cluster0.gqlfvrw.mongodb.net/", {
+//             useNewUrlParser: true,
+//             useUnifiedTopology: true
+// }).then((res)=>{
+//     console.log("Connected");
+// })
+// .catch((err)=>{
+//     console.log(err);
+// })
+
+
+
 
 const admin = require("./models/adminmodel");
 const passport = require('passport');
